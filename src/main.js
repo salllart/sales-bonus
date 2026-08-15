@@ -97,8 +97,8 @@ function analyzeSalesData(data, options) {
         seller.bonus = calculateBonus(index, sellerStats.length, seller);
         seller.products_sold = Object
             .entries(seller.products_sold)
-            .map(([sku, quantity]) => ({sku: quantity}))
-            .sort((a, b) => -1 * (a.sku - b.sku))
+            .map(([key, value]) => ({sku: key, quantity: value}))
+            .sort((a, b) => -1 * (a.quantity - b.quantity))
             .slice(0, 10);
     })
 
